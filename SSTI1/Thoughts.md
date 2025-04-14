@@ -26,9 +26,10 @@
 
 - I learned that SSTI occurs when user input is **evaluated inside server-side templates** without proper sanitization. This sounded familiar — I had seen templating behavior like this before but didn’t know it had a specific name.
 
-- Using that article, I successfully identified the vulnerability in the challenge.  
+- Using that article, I successfully identified the vulnerability in the challenge.
+  Each test input helped narrow down which templating engine was being used — confirming that the app was vulnerable to Jinja2-based SSTI.
   ![Template Identification](./images/image.png)  
-  _(Image from PortSwigger’s guide)_
+   _(Image from PortSwigger’s guide)_
 
 - The input field was using **Jinja2** (a Python templating engine), and the server was rendering the input directly — without sanitization.
 
